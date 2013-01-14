@@ -15,12 +15,10 @@ import (
 
 func main() {
 	ao.Initialize()
-
 	driver, err := ao.DefaultDriverId()
 	if err != nil {
 		panic("could not find audio driver!")
 	}
-
 	f := ao.Format{}
 	f.Bits = 16
 	f.Rate = 44100
@@ -40,6 +38,5 @@ func main() {
 		buffer[4*i+3] = buffer[4*i+1]
 	}
 	player.Play(buffer)
-
 	player.Close()
 }
